@@ -15,19 +15,19 @@
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
-                            <img class="thumbnail img-responsive" src="{{ user.profile.image.url }}" width="300px" height="300px">
+                            <img class="thumbnail img-responsive" src="{{ users.profile.image.url }}" width="300px" height="300px">
                         </div>
                         <div class="media-body">
                             <hr>
                             <h3><strong>Bio</strong></h3>
-                            <p>{{ user.profile.bio }}</p>
+                            <p>{{ users.profile.bio }}</p>
                             <hr>
 
                             <h3><strong>Gender</strong></h3>
-                            <p>{{ user.profile.gender }}</p>
+                            <p>{{ users.profile.gender }}</p>
                             <hr>
                             <h3><strong>Birthday</strong></h3>
-                            <p>{{ user.profile.dob.date }}</p>
+                            <p>{{ users.profile.dob.date }}</p>
                         </div>
                     </div>
                 </div>
@@ -37,24 +37,15 @@
             <div class="panel panel-default">
                 <div class="panel-body test">
                     <span>
-                        <h1 class="panel-title pull-left" style="font-size:30px;">{{ user.username }} <small>{{ user.email }}</small> </h1>
-                        {% if user.is_authenticated %}
-                        <div class="dropdown pull-right">
-                          <a href="{% url 'posts:update_profile' %}">
-                            <button class="btn btn-success" type="button" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="true">
-                                Update Profile
+                        <h1 class="panel-title pull-left" style="font-size:30px;">{{ users.username }} <small>{{ users.email }}</small> </h1>
+                        {# if user.is_authenticated #}
 
-
-                            </button>
-                          </a>
-
-                        </div>
-                        {% endif %}
+                        {# endif #}
                     </span>
                     <br><br>
 
 
-                    <h1 class="panel-title pull-left" style="font-size:20px;">{{ user.first_name }} {{ user.last_name }}</h1>
+                    <h1 class="panel-title pull-left" style="font-size:20px;">{{ users.first_name }} {{ users.last_name }}</h1>
                     <br>
 
 
@@ -70,7 +61,7 @@
 
 
 
-            {% for question in user.question_set.all %}
+            {% for question in users.question_set.all %}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="pull-left">
@@ -104,7 +95,7 @@
 
 
 
-            {% for answer in user.answer_set.all %}
+            {% for answer in users.answer_set.all %}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="pull-left">
@@ -135,6 +126,8 @@
 
 
 
+
+            
 
             </div>
 

@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 from .models import Profile, Question, Answer, Comment
 from .forms import UserForm, ProfileForm, AnswerForm, QuestionForm
@@ -22,6 +23,16 @@ def myprofile(request):
         user = request.user
 
         return render(request, 'posts/profile.html',{'user':user})
+
+def user_profile(request,username):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('account_login'))
+    else:
+        users = get_object_or_404(User,username=username)
+        return render(request, 'posts/userprofile.html',{'users':users})
+
+
+
 def update_profile(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('account_login'))
