@@ -1,0 +1,25 @@
+{% extends 'posts/base.html' %}
+
+{% block body %}
+
+        <div class="post">
+          {% if question.published_date %}
+              <div class="date">
+                  {{ question.published_date }}
+              </div>
+          {% endif %}
+          {% if user.is_authenticated %}
+
+          {% endif %}
+          <h1>{{ question.text }}</h1>
+          <a href="{% url 'posts:add_answer' pk=question.pk %}">Add answer</a>
+          <p>{{ question.details|linebreaksbr }}</p>
+
+          {% for answer in answers %}
+
+              <p>{{ answer.text|linebreaksbr }}</p>
+
+          {% endfor %}
+        </div>
+
+{% endblock  %}

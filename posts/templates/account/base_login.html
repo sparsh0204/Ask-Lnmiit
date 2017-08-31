@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>{% block head_title %}{% endblock %}</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}" />
+  <script src="{% static 'js/login.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}" />
+  {% block extra_head %}
+  {% endblock %}
+
+
+
+
+
+
+</head>
+
+<body>
+
+          <div class="navbar-wrapper">
+              <div class="container-fluid">
+                  <div class="navbar navbar-default navbar-static-top" role="navigation">
+                      <div class="container-fluid">
+                          <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                  <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                                      class="icon-bar"></span><span class="icon-bar"></span>
+                              </button>
+                              <a class="navbar-brand" href="./ORqmj" style="margin-right:-8px; margin-top:-5px;">
+                                  <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
+                              </a>
+                              <a class="navbar-brand" href="{% url 'posts:question_list' %}">Ask LNMIIT</a>
+                              <i class="brand_network"><small><small>LNM Institute of Technology</small></small></i>
+                          </div>
+                          <div class="navbar-collapse collapse">
+                              <ul class="nav navbar-nav">
+                                  <!--<li><a href="./ORqmj">Stream</a></li>-->
+                                <!--  <li><a href="#">My Activity</a></li>
+                                  <li><span class="badge badge-important">2</span><a href="#"><i class="fa fa-bell-o fa-lg" aria-hidden="true"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></a></li>
+-->
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown"><a href="{% url 'account_login' %}" class="dropdown-toggle" >
+                                  <span class="user-name">Login</span></a></li>
+                                <li class="dropdown">
+
+                                  <a href="{% url 'account_signup' %}" class="dropdown-toggle" >
+                                  <span class="user-name">Signup</span></a>
+
+
+
+                              </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+  {% block content %}
+  {% endblock %}
+
+
+
+
+</body>
+</html>

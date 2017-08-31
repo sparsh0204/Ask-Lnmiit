@@ -1,0 +1,9 @@
+{% extends 'posts/base0.html' %}
+
+{% block content %}
+    <h3{{question}}</h3>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form | linebreaks }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'posts/base.html' %}
+
+{% block body %}
+    {% for question in questions %}
+
+        <div class="post">
+            <div class="date">
+                {{ question.published_date }}
+            </div>
+
+            <h1><a href="{% url 'posts:question_detail' pk=question.pk %}">{{ question.text }}</a></h1>
+            <p>{{ question.details|linebreaksbr }}</p>
+
+            {% for item in question.answer_set.all %}
+
+
+                <p>{{ item.text|linebreaksbr }}</p>
+            
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+{% endblock %}
